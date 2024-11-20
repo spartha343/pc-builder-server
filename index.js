@@ -1,9 +1,13 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config();
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 const app = express();
 const port = process.env.PORT | 5000;
+
+app.use(cors());
+app.use(express.json());
 
 const uri = process.env.DATABASE_URI;
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
